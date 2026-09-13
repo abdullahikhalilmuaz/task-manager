@@ -12,16 +12,21 @@ export default function Register() {
     confirm: "",
   });
   const [err, setErr] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const submit = async (e) => {
     e.preventDefault();
     setErr("");
     if (form.password !== form.confirm) return setErr("Passwords do not match");
+
+    setLoading(true);
     try {
       await register(form.name, form.email, form.password);
       nav("/dashboard");
     } catch (e) {
       setErr(e.response?.data?.message || "Register failed");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -71,7 +76,9 @@ export default function Register() {
               required
             />
             {err && <div className="error-msg">{err}</div>}
-            <button className="btn-primary full">Register</button>
+            <button className="btn-primary full" disabled={loading}>
+              {loading ? "Creating account..." : "Register"}
+            </button>
           </form>
 
           <p className="auth-footer">
