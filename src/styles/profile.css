@@ -1,0 +1,41 @@
+.profile-card {
+  background: #fff; border-radius: var(--radius);
+  padding: 28px; box-shadow: var(--shadow);
+  text-align: center; max-width: 320px; margin-bottom: 20px;
+}
+.profile-avatar {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: var(--primary); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px; font-weight: 700;
+  margin: 0 auto 16px;
+}
+.profile-card h2 { font-size: 18px; margin-bottom: 4px; }
+
+.profile-sections {
+  display: grid; grid-template-columns: 220px 1fr; gap: 20px;
+}
+.profile-tabs, .settings-tabs {
+  background: #fff; border-radius: var(--radius);
+  padding: 12px; box-shadow: var(--shadow);
+  display: flex; flex-direction: column; gap: 4px;
+}
+.profile-tabs .tab, .settings-tabs .tab {
+  text-align: left; border: none; border-radius: 8px;
+  background: transparent; padding: 10px 14px;
+}
+.profile-tabs .tab.active, .settings-tabs .tab.active {
+  background: #EDE9FE; color: var(--primary);
+}
+.profile-content, .settings-content {
+  background: #fff; border-radius: var(--radius);
+  padding: 28px; box-shadow: var(--shadow);
+}
+.profile-content h3, .settings-content h3 {
+  font-size: 16px; margin-bottom: 20px;
+}
+.form-grid { display: grid; gap: 16px; margin-bottom: 20px; }
+
+@media (max-width: 700px) {
+  .profile-sections, .settings-layout { grid-template-columns: 1fr; }
+}

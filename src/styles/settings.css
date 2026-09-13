@@ -1,0 +1,9 @@
+.settings-layout { display: grid; grid-template-columns: 220px 1fr; gap: 20px; }
+.settings-content label { margin-top: 14px; }
+.settings-content .select { margin-bottom: 6px; }
+.switch-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 0; font-size: 14px; color: var(--muted);
+}
+.switch-row input { width: auto; }
+.settings-content .btn-primary { margin-top: 24px; }
