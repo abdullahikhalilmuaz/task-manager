@@ -5,7 +5,12 @@ import { useAuth } from "../context/AuthContext.jsx";
 export default function Register() {
   const { register } = useAuth();
   const nav = useNavigate();
-  const [form, setForm] = useState({ name: "", email: "", password: "", confirm: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirm: "",
+  });
   const [err, setErr] = useState("");
 
   const submit = async (e) => {
@@ -26,20 +31,45 @@ export default function Register() {
         <div className="auth-left">
           <div className="brand">
             <span className="logo-mark">✓</span>
-            <span className="logo-text">TaskFlow</span>
+            <span className="logo-text">taskflux</span>
           </div>
           <h2>Create Your Account</h2>
-          <p className="auth-sub">Join us and start managing your tasks efficiently.</p>
+          <p className="auth-sub">
+            Join us and start managing your tasks efficiently.
+          </p>
 
           <form onSubmit={submit} className="auth-form">
             <label>Full Name</label>
-            <input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Enter your full name" required />
+            <input
+              value={form.name}
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
+              placeholder="Enter your full name"
+              required
+            />
             <label>Email Address</label>
-            <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="you@example.com" required />
+            <input
+              type="email"
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+              placeholder="you@example.com"
+              required
+            />
             <label>Password</label>
-            <input type="password" value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} placeholder="Create a password" required />
+            <input
+              type="password"
+              value={form.password}
+              onChange={(e) => setForm({ ...form, password: e.target.value })}
+              placeholder="Create a password"
+              required
+            />
             <label>Confirm Password</label>
-            <input type="password" value={form.confirm} onChange={(e) => setForm({ ...form, confirm: e.target.value })} placeholder="Confirm your password" required />
+            <input
+              type="password"
+              value={form.confirm}
+              onChange={(e) => setForm({ ...form, confirm: e.target.value })}
+              placeholder="Confirm your password"
+              required
+            />
             {err && <div className="error-msg">{err}</div>}
             <button className="btn-primary full">Register</button>
           </form>
@@ -50,7 +80,11 @@ export default function Register() {
         </div>
         <div className="auth-right">
           <div className="auth-art">
-            <h3>Better Planning<br />Better Results</h3>
+            <h3>
+              Better Planning
+              <br />
+              Better Results
+            </h3>
           </div>
         </div>
       </div>

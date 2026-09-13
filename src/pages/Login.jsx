@@ -30,10 +30,12 @@ export default function Login() {
         <div className="auth-left">
           <div className="brand">
             <span className="logo-mark">✓</span>
-            <span className="logo-text">TaskFlow</span>
+            <span className="logo-text">taskflux</span>
           </div>
           <h2>Welcome Back</h2>
-          <p className="auth-sub">Sign in to your account to continue your productivity journey.</p>
+          <p className="auth-sub">
+            Sign in to your account to continue your productivity journey.
+          </p>
 
           <form onSubmit={submit} className="auth-form">
             <label>Email Address</label>
@@ -56,7 +58,9 @@ export default function Login() {
               <label className="check">
                 <input type="checkbox" /> Remember me
               </label>
-              <a href="#" className="link-sm">Forgot password?</a>
+              <a href="#" className="link-sm">
+                Forgot password?
+              </a>
             </div>
             {err && <div className="error-msg">{err}</div>}
             <button className="btn-primary full" disabled={loading}>
@@ -73,7 +77,11 @@ export default function Login() {
         </div>
         <div className="auth-right">
           <div className="auth-art">
-            <h3>Small steps<br />make big progress</h3>
+            <h3>
+              Small steps
+              <br />
+              make big progress
+            </h3>
           </div>
         </div>
       </div>
