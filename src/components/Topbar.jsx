@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { FiSearch, FiBell } from "react-icons/fi";
+import { FiSearch, FiBell, FiMenu } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import api from "../api/axios.js";
 import { useAuth } from "../context/AuthContext.jsx";
@@ -38,12 +38,25 @@ export default function Topbar() {
     return () => document.removeEventListener("mousedown", close);
   }, []);
 
+  const toggleSidebar = () => {
+    document.body.classList.toggle("sidebar-open");
+  };
+
   return (
     <header className="topbar">
+      <button
+        className="hamburger"
+        onClick={toggleSidebar}
+        aria-label="Toggle menu"
+      >
+        <FiMenu />
+      </button>
+
       <div className="search-box">
         <FiSearch />
         <input placeholder="Search anything..." />
       </div>
+
       <div className="topbar-right">
         <div className="notif-wrap" ref={ref}>
           <button className="icon-btn" onClick={() => setOpen(!open)}>
