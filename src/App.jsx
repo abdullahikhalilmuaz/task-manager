@@ -13,6 +13,7 @@ import Profile from "./pages/Profile.jsx";
 import Settings from "./pages/Settings.jsx";
 import Sidebar from "./components/Sidebar.jsx";
 import Topbar from "./components/Topbar.jsx";
+import TeamDetails from "./pages/TeamDetails.jsx";
 
 const ProtectedLayout = ({ children }) => {
   const { user } = useAuth();
@@ -34,17 +35,87 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Landing />} />
-      <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <Login />} />
-      <Route path="/register" element={user ? <Navigate to="/dashboard" /> : <Register />} />
+      <Route
+        path="/login"
+        element={user ? <Navigate to="/dashboard" /> : <Login />}
+      />
+      <Route
+        path="/register"
+        element={user ? <Navigate to="/dashboard" /> : <Register />}
+      />
 
-      <Route path="/dashboard" element={<ProtectedLayout><Dashboard /></ProtectedLayout>} />
-      <Route path="/tasks" element={<ProtectedLayout><Tasks /></ProtectedLayout>} />
-      <Route path="/tasks/new" element={<ProtectedLayout><CreateTask /></ProtectedLayout>} />
-      <Route path="/tasks/:id" element={<ProtectedLayout><TaskDetails /></ProtectedLayout>} />
-      <Route path="/reports" element={<ProtectedLayout><Reports /></ProtectedLayout>} />
-      <Route path="/teams" element={<ProtectedLayout><Teams /></ProtectedLayout>} />
-      <Route path="/profile" element={<ProtectedLayout><Profile /></ProtectedLayout>} />
-      <Route path="/settings" element={<ProtectedLayout><Settings /></ProtectedLayout>} />
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectedLayout>
+            <Dashboard />
+          </ProtectedLayout>
+        }
+      />
+      <Route
+        path="/tasks"
+        element={
+          <ProtectedLayout>
+            <Tasks />
+          </ProtectedLayout>
+        }
+      />
+      <Route
+        path="/tasks/new"
+        element={
+          <ProtectedLayout>
+            <CreateTask />
+          </ProtectedLayout>
+        }
+      />
+      <Route
+        path="/tasks/:id"
+        element={
+          <ProtectedLayout>
+            <TaskDetails />
+          </ProtectedLayout>
+        }
+      />
+      <Route
+        path="/reports"
+        element={
+          <ProtectedLayout>
+            <Reports />
+          </ProtectedLayout>
+        }
+      />
+      <Route
+        path="/teams/:id"
+        element={
+          <ProtectedLayout>
+            <TeamDetails />
+          </ProtectedLayout>
+        }
+      />
+      <Route
+        path="/teams"
+        element={
+          <ProtectedLayout>
+            <Teams />
+          </ProtectedLayout>
+        }
+      />
+      <Route
+        path="/profile"
+        element={
+          <ProtectedLayout>
+            <Profile />
+          </ProtectedLayout>
+        }
+      />
+      <Route
+        path="/settings"
+        element={
+          <ProtectedLayout>
+            <Settings />
+          </ProtectedLayout>
+        }
+      />
 
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
